@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stop HVCTS | Campaign Against the Homeowner Vehicle & Council Tax Surcharge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1f3c;
+      --navy-mid: #1a3358;
+      --red: #c0392b;
+      --red-light: #e74c3c;
+      --gold: #c9a84c;
+      --gold-light: #f0c96a;
+      --white: #ffffff;
+      --off-white: #f5f2ed;
+      --light-grey: #e8e4df;
+      --mid-grey: #9a9490;
+      --text-dark: #1a1410;
+      --text-body: #3a3530;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text-body);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--navy);
+      border-bottom: 3px solid var(--gold);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--white); }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--light-grey);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.85rem;
+      border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+      background: rgba(201,168,76,0.1);
+    }
+
+    .nav-links .btn-action {
+      background: var(--red);
+      color: var(--white);
+      padding: 0.5rem 1.1rem;
+      border-radius: 3px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .nav-links .btn-action:hover {
+      background: var(--red-light);
+      color: var(--white);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 100px 6vw 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 45%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 18px,
+        rgba(201,168,76,0.04) 18px,
+        rgba(201,168,76,0.04) 19px
+      );
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--gold) 50%, var(--red) 100%);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1.08;
+      color: var(--white);
+      max-width: 720px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      border-radius: 3px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--red-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--gold-light);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      border-radius: 3px;
+      text-decoration: none;
+      border: 1.5px solid var(--gold);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(201,168,76,0.12);
+    }
+
+    .hero-stat-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      padding: 0;
+    }
+
+    .hero-stat {
+      flex: 1;
+      max-width: 260px;
+      text-align: center;
+      padding: 1.2rem 1rem;
+      border-right: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .hero-stat:last-child { border-right: none; }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 6vw; }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      max-width: 48px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    /* ── WHAT IS HVCTS ── */
+    .what-is {
+      background: var(--off-white);
+    }
+
+    .what-is-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+
+    .what-is-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      color: var(--text-body);
+    }
+
+    .what-is-text p strong {
+      color: var(--navy);
+    }
+
+    .fact-box {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 4px;
+      padding: 2rem 2rem 1.5rem;
+      border-left: 4px solid var(--gold);
+    }
+
+    .fact-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .fact-item {
+      display: flex;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .fact-icon {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .fact-item p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ── WHY WE OPPOSE ── */
+    .why-oppose { background: var(--white); }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .reason-card {
+      border: 1px solid var(--light-grey);
+      border-top: 4px solid var(--navy);
+      padding: 1.75rem;
+      background: var(--white);
+      transition: box-shadow 0.2s, border-top-color 0.2s;
+    }
+
+    .reason-card:hover {
+      box-shadow: 0 8px 32px rgba(13,31,60,0.1);
+      border-top-color: var(--red);
+    }
+
+    .reason-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--light-grey);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .reason-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .reason-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    /* ── WHO IS AFFECTED ── */
+    .who-affected {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .who-affected h2 { color: var(--white); }
+
+    .who-affected .section-eyebrow { color: var(--gold); }
+    .who-affected .section-eyebrow::after { background: var(--gold); }
+
+    .affected-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+      margin-top: 2.5rem;
+    }
+
+    .affected-item {
+      background: var(--navy-mid);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .affected-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .affected-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .affected-item p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    /* ── CAMPAIGN NAV BUTTONS ── */
+    .campaign-nav {
+      background: var(--off-white);
+      padding: 60px 6vw;
+    }
+
+    .campaign-nav-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .campaign-nav-title h2 { color: var(--navy); }
+
+    .campaign-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .campaign-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 2rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .campaign-tile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .campaign-tile-icon {
+      font-size: 2rem;
+    }
+
+    .campaign-tile.take-action {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .campaign-tile.take-action:hover { background: var(--red-light); }
+
+    .campaign-tile.research {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .campaign-tile.links {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .campaign-tile.links:hover { background: var(--off-white); }
+
+    .tile-coming-soon {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── TAKE ACTION MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,31,60,0.85);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      background: var(--white);
+      border-radius: 4px;
+      max-width: 560px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      border-top: 5px solid var(--red);
+      animation: slideUp 0.25s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1.25rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--mid-grey);
+      line-height: 1;
+    }
+
+    .modal-close:hover { color: var(--navy); }
+
+    .modal h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-intro {
+      font-size: 0.95rem;
+      color: var(--mid-grey);
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+
+    .action-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      border: 1px solid var(--light-grey);
+      border-radius: 3px;
+      margin-bottom: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .action-option:hover {
+      border-color: var(--navy);
+      background: var(--off-white);
+    }
+
+    .action-option-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .action-option h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+
+    .action-option p {
+      font-size: 0.875rem;
+      color: var(--mid-grey);
+      line-height: 1.5;
+    }
+
+    /* ── LINKS MODAL ── */
+    .links-placeholder {
+      padding: 2rem;
+      text-align: center;
+      color: var(--mid-grey);
+      font-style: italic;
+    }
+
+    /* ── RESEARCH MODAL ── */
+    .research-placeholder {
+      padding: 2rem;
+      text-align: center;
+      color: var(--mid-grey);
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.55);
+      padding: 3rem 6vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .footer-contact {
+      text-align: right;
+    }
+
+    .footer-contact a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover { text-decoration: underline; }
+
+    .footer-legal {
+      grid-column: 1 / -1;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 0; }
+      .nav-links a { font-size: 0.78rem; padding: 0.4rem 0.55rem; }
+
+      .hero { padding: 90px 5vw 100px; }
+      .hero-stat-strip { display: none; }
+
+      .what-is-grid { grid-template-columns: 1fr; }
+
+      footer { grid-template-columns: 1fr; }
+      .footer-contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Shout<span>UnfairTax</span></a>
+    <ul class="nav-links">
+      <li><a href="#what-is">The Issue</a></li>
+      <li><a href="#why-oppose">Why We Oppose</a></li>
+      <li><a href="#who-affected">Who's Affected</a></li>
+      <li><a href="#" class="btn-action" onclick="openModal('action')">Take Action</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <p class="hero-eyebrow">National Campaign · United Kingdom</p>
+    <h1>Stop the <em>HVCTS</em><br>Homeowner Tax</h1>
+    <p class="hero-sub">
+      The proposed Homeowner Vehicle &amp; Council Tax Surcharge represents an unprecedented and unjust burden on property owners across the UK. We are committed to presenting the facts, mobilising opposition, and protecting homeowners.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#" class="btn-primary" onclick="openModal('action'); return false;">&#9654; Take Action Now</a>
+      <a href="#what-is" class="btn-secondary">Learn the Facts</a>
+    </div>
+
+    <div class="hero-stat-strip">
+      <div class="hero-stat">
+        <span class="hero-stat-num">Millions</span>
+        <span class="hero-stat-label">Homeowners Affected</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">£000s</span>
+        <span class="hero-stat-label">Potential Annual Cost</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2025</span>
+        <span class="hero-stat-label">Proposed Implementation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS HVCTS -->
+  <section class="what-is" id="what-is">
+    <p class="section-eyebrow">Understanding the Proposal</p>
+    <h2>What is the HVCTS?</h2>
+    <div class="what-is-grid">
+      <div class="what-is-text">
+        <p>
+          The <strong>Homeowner Vehicle &amp; Council Tax Surcharge (HVCTS)</strong> is a proposed additional levy targeting property owners across England and Wales. It seeks to impose a surcharge on top of existing council tax obligations, linked to vehicle ownership or property characteristics.
+        </p>
+        <p>
+          Proponents argue the measure will generate revenue to fund local infrastructure and public services. However, the proposal raises serious questions about <strong>fairness, proportionality, and the additional pressure</strong> it places on homeowners already facing the rising cost of living.
+        </p>
+        <p>
+          This campaign is not opposed to funding public services. We are opposed to a policy that is <strong>poorly designed, disproportionately burdensome, and lacks proper democratic scrutiny</strong>.
+        </p>
+      </div>
+      <div class="fact-box">
+        <h3>Key Facts</h3>
+        <div class="fact-item">
+          <span class="fact-icon">▶</span>
+          <p>Applies as a surcharge on top of existing council tax bills</p>
+        </div>
+        <div class="fact-item">
+          <span class="fact-icon">▶</span>
+          <p>Affects property owners who also own or operate a vehicle</p>
+        </div>
+        <div class="fact-item">
+          <span class="fact-icon">▶</span>
+          <p>No independent impact assessment has been published</p>
+        </div>
+        <div class="fact-item">
+          <span class="fact-icon">▶</span>
+          <p>Applies regardless of income, financial hardship, or need</p>
+        </div>
+        <div class="fact-item">
+          <span class="fact-icon">▶</span>
+          <p>No equivalent charge on renters or commercial leaseholders</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WE OPPOSE -->
+  <section class="why-oppose" id="why-oppose">
+    <p class="section-eyebrow">Our Position</p>
+    <h2>Why We Oppose the HVCTS</h2>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-num">01</div>
+        <h3>It Is Fundamentally Unfair</h3>
+        <p>The surcharge targets homeowners exclusively, creating a two-tier system that penalises property ownership. Renters in equivalent circumstances face no comparable burden.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">02</div>
+        <h3>It Lacks Proportionality</h3>
+        <p>The levy does not account for income, household composition, or genuine need. A retired couple on fixed income faces the same charge as a high-earning household.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">03</div>
+        <h3>No Democratic Mandate</h3>
+        <p>This policy was not prominently featured in any election manifesto. It represents a significant tax increase introduced without a clear public mandate or national debate.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">04</div>
+        <h3>No Independent Assessment</h3>
+        <p>The government has not published an independent impact assessment examining the financial and social effects on homeowners across the income spectrum.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">05</div>
+        <h3>Chilling Effect on Homeownership</h3>
+        <p>Imposing further costs on property owners discourages homeownership — a goal successive governments have stated they wish to support and expand.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">06</div>
+        <h3>Double Taxation</h3>
+        <p>Homeowners already pay council tax and vehicle excise duty. The HVCTS effectively creates a third levy on the same assets without delivering any additional service.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IS AFFECTED -->
+  <section class="who-affected" id="who-affected">
+    <p class="section-eyebrow">Impact</p>
+    <h2>Who Will Be Affected?</h2>
+    <div class="affected-grid">
+      <div class="affected-item">
+        <div class="affected-icon">🏡</div>
+        <h3>Retired Homeowners</h3>
+        <p>Those on fixed pensions with no means to absorb additional tax demands</p>
+      </div>
+      <div class="affected-item">
+        <div class="affected-icon">👨‍👩‍👧</div>
+        <h3>Young Families</h3>
+        <p>First-time buyers already stretched by mortgages and living costs</p>
+      </div>
+      <div class="affected-item">
+        <div class="affected-icon">🚗</div>
+        <h3>Rural Communities</h3>
+        <p>Households who depend on a vehicle due to lack of public transport</p>
+      </div>
+      <div class="affected-item">
+        <div class="affected-icon">🔧</div>
+        <h3>Self-Employed Workers</h3>
+        <p>Those who require a vehicle as an essential tool of their trade</p>
+      </div>
+      <div class="affected-item">
+        <div class="affected-icon">♿</div>
+        <h3>Disabled Homeowners</h3>
+        <p>Those who depend on a vehicle for mobility and independence</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN NAV BUTTONS -->
+  <section class="campaign-nav" id="campaign-nav">
+    <div class="campaign-nav-title">
+      <p class="section-eyebrow" style="justify-content:center;">Get Involved</p>
+      <h2>Join the Campaign</h2>
+    </div>
+    <div class="campaign-nav-grid">
+      <a href="#" class="campaign-tile take-action" onclick="openModal('action'); return false;">
+        <span class="campaign-tile-icon">✊</span>
+        Take Action
+      </a>
+      <a href="#" class="campaign-tile research" onclick="openModal('research'); return false;">
+        <span class="campaign-tile-icon">📄</span>
+        Research
+        <span class="tile-coming-soon">Coming Soon</span>
+      </a>
+      <a href="#" class="campaign-tile links" onclick="openModal('links'); return false;">
+        <span class="campaign-tile-icon">🔗</span>
+        Links
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-brand">ShoutUnfairTax.uk</div>
+      <p class="footer-tagline">A national campaign opposing the HVCTS homeowner tax proposal.<br>Standing up for fairness, transparency, and democratic accountability.</p>
+    </div>
+    <div class="footer-contact">
+      <p>Contact the campaign:</p>
+      <p><a href="mailto:info@shoutunfairtax.uk">info@shoutunfairtax.uk</a></p>
+    </div>
+    <div class="footer-legal">
+      <p>ShoutUnfairTax.uk is an independent campaign organisation. All factual claims are based on publicly available information. This site is not affiliated with any political party.</p>
+    </div>
+  </footer>
+
+  <!-- TAKE ACTION MODAL -->
+  <div class="modal-overlay" id="modal-action">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('action')">&times;</button>
+      <h2>Take Action</h2>
+      <p class="modal-intro">Help stop the HVCTS. There are several ways you can support this campaign — every contribution matters.</p>
+
+      <a href="mailto:info@shoutunfairtax.uk" class="action-option">
+        <span class="action-option-icon">✉️</span>
+        <div>
+          <h3>Contact the Campaign</h3>
+          <p>Get in touch with us directly at info@shoutunfairtax.uk — whether you have a question, a story to share, or want to get involved.</p>
+        </div>
+      </a>
+
+      <a href="mailto:info@shoutunfairtax.uk?subject=Volunteer%20Enquiry" class="action-option">
+        <span class="action-option-icon">🤝</span>
+        <div>
+          <h3>Volunteer With Us</h3>
+          <p>We are actively looking for volunteers to help with outreach, research, communications, and events. Email us to find out how you can help.</p>
+        </div>
+      </a>
+
+      <a href="https://www.paypal.com" target="_blank" rel="noopener noreferrer" class="action-option">
+        <span class="action-option-icon">💳</span>
+        <div>
+          <h3>Make a Donation</h3>
+          <p>Support the campaign financially. Your donation helps us reach more people, fund research, and sustain this campaign. Donate securely via PayPal.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- RESEARCH MODAL -->
+  <div class="modal-overlay" id="modal-research">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('research')">&times;</button>
+      <h2>Research</h2>
+      <p class="modal-intro">Research, analysis, and policy documents will be published here.</p>
+      <div class="research-placeholder">
+        <p>This section is being developed.<br>Please check back soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKS MODAL -->
+  <div class="modal-overlay" id="modal-links">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('links')">&times;</button>
+      <h2>Links</h2>
+      <p class="modal-intro">Useful links to related organisations, news coverage, and resources.</p>
+      <div class="links-placeholder">
+        <p>Links will be added here shortly.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(name) {
+      document.getElementById('modal-' + name).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(name) {
+      document.getElementById('modal-' + name).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    // Close on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(function(m) {
+          m.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

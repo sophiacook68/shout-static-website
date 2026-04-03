@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Make a Donation – SHOUT Unfair Tax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0d1f3c;--navy-mid:#162d52;--red:#c8102e;--red-hover:#a00d25;--gold:#d4a017;--off-white:#f5f3ee;--light-grey:#e8e5df;--mid-grey:#9a9690;--body-text:#2a2724;--font-display:'Playfair Display',Georgia,serif;--font-body:'Source Sans 3','Gill Sans',sans-serif;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-body);background:var(--off-white);color:var(--body-text);font-size:17px;line-height:1.7;}
+  nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+  .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+  .nav-logo-badge{background:var(--red);color:#fff;font-family:var(--font-display);font-weight:900;font-size:1.15rem;padding:0.18rem 0.55rem;letter-spacing:0.05em;border-radius:3px;}
+  .nav-logo-text{color:var(--off-white);font-family:var(--font-body);font-weight:300;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;}
+  .nav-links{display:flex;gap:0.3rem;list-style:none;}
+  .nav-links a{color:rgba(245,243,238,0.8);text-decoration:none;font-size:0.85rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.75rem;border-radius:3px;transition:color 0.2s,background 0.2s;}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08);}
+  .page-header{background:var(--navy);color:#fff;padding:3.5rem 2rem 3rem;}
+  .page-header-inner{max-width:860px;margin:0 auto;}
+  .page-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.72rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+  .page-header h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin-bottom:0.8rem;}
+  .page-header p{color:rgba(245,243,238,0.8);font-size:1.05rem;font-weight:300;max-width:580px;}
+  section{padding:3.5rem 2rem;}
+  .section-inner{max-width:760px;margin:0 auto;}
+  .section-tag{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;}
+  h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:var(--navy);margin-bottom:1rem;}
+  p{margin-bottom:1rem;color:#3d3a36;}
+  ul{padding-left:1.4rem;margin-bottom:1.2rem;}
+  li{margin-bottom:0.5rem;font-size:0.93rem;color:#3d3a36;}
+  .white-section{background:#fff;border-top:3px solid var(--gold);}
+  .donate-box{background:var(--navy);color:#fff;padding:3rem 2.5rem;text-align:center;margin-top:2rem;}
+  .donate-box h3{font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:#fff;margin-bottom:0.8rem;}
+  .donate-box p{color:rgba(245,243,238,0.8);margin-bottom:1.6rem;font-size:0.95rem;}
+  .donate-note{font-size:0.8rem;color:rgba(245,243,238,0.55);margin-top:1rem;margin-bottom:0;}
+  .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.6rem;}
+  @media(max-width:580px){.how-grid{grid-template-columns:1fr;}}
+  .how-card{background:#fff;border:1px solid var(--light-grey);border-top:3px solid var(--navy);padding:1.4rem 1.4rem;}
+  .how-card h3{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:0.4rem;}
+  .how-card p{font-size:0.88rem;margin:0;}
+  .btn{display:inline-block;padding:0.85rem 2.5rem;border-radius:3px;font-family:var(--font-body);font-size:1rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;}
+  .btn-gold{background:var(--gold);color:var(--navy);}
+  .btn-gold:hover{background:#c49014;transform:translateY(-2px);}
+  .btn-outline{display:inline-block;padding:0.7rem 1.6rem;border-radius:3px;font-family:var(--font-body);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);}
+  .btn-outline:hover{border-color:#fff;}
+  footer{background:#0a1828;color:rgba(245,243,238,0.6);padding:2.5rem 2rem;text-align:center;font-size:0.82rem;line-height:1.8;}
+  footer a{color:rgba(245,243,238,0.6);text-decoration:underline;}
+  footer a:hover{color:#fff;}
+  .footer-logo{font-family:var(--font-display);font-weight:900;font-size:1.3rem;color:#fff;letter-spacing:0.05em;margin-bottom:0.4rem;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="about-shout.html" class="nav-logo">
+    <span class="nav-logo-badge">SHOUT</span>
+    <span class="nav-logo-text">Unfair Tax</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about-shout.html">About</a></li>
+    <li><a href="read-the-facts.html">Facts</a></li>
+    <li><a href="write-to-your-mp.html">Write to your MP</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="links.html">Links</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-tag">Support the Campaign</span>
+    <h1>Make a Donation</h1>
+    <p>To mount an effective media campaign we need to raise funds to pay for leaflets, professional lobbying advice and website costs. Please consider making a donation to support our running costs.</p>
+  </div>
+</div>
+
+<section class="white-section">
+  <div class="section-inner">
+    <p class="section-tag">Why We Need Your Support</p>
+    <h2>A fully funded campaign makes a real difference</h2>
+    <p>SHOUT is run by a small committee of concerned resident home-owners. No one on the SHOUT Committee will gain financially from the work undertaken — our time and energy is given free of charge.</p>
+    <p>But to run a fully effective lobbying and social media campaign, we need financial contributions from our supporters. Every donation, however large or small, goes directly towards:</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <h3>Professional lobbying</h3>
+        <p>Engaging expert advisers to help us navigate Parliament and make the most effective case to Ministers and MPs.</p>
+      </div>
+      <div class="how-card">
+        <h3>Leafleting and print</h3>
+        <p>Reaching homeowners who may not be aware of the HVCTS and its potential impact on them and their communities.</p>
+      </div>
+      <div class="how-card">
+        <h3>Digital outreach</h3>
+        <p>Running effective social media and digital advertising campaigns to build public awareness and political pressure.</p>
+      </div>
+      <div class="how-card">
+        <h3>Website and research</h3>
+        <p>Maintaining this site and commissioning or publishing independent research and legal analysis to support our case.</p>
+      </div>
+    </div>
+
+    <div class="donate-box">
+      <h3>Donate online via PayPal</h3>
+      <p>Secure, quick, and no PayPal account required. Every contribution goes directly to the campaign.</p>
+      <a href="https://www.paypal.com/donate" target="_blank" rel="noopener" class="btn btn-gold">Donate now</a>
+      <p class="donate-note">SHOUT is an independent campaign. Donations are not tax-deductible. No one on the Committee benefits financially.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <p class="section-tag">Other Ways to Help</p>
+    <h2>Can't donate? You can still make a difference</h2>
+    <p>SHOUT also needs support from those who could be affected by a tax on homes. You can help if:</p>
+    <ul>
+      <li>You could be affected, now or in the future</li>
+      <li>You're worried about friends or family who could be adversely affected</li>
+      <li>You're concerned about the potential impact on your community or neighbourhood</li>
+      <li>You object in principle to an annual cash levy on a non-cash generating asset</li>
+      <li>You would like to be involved in the campaign in any way</li>
+    </ul>
+    <p>Please <a href="write-to-your-mp.html">write to your MP</a> expressing your concerns, and <a href="mailto:info@shoutunfairtax.uk?subject=Mailing list">join our mailing list</a> to receive occasional campaign updates.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">SHOUT</div>
+  <p>Stop Home-Owners' Unfair Tax — an independent campaign against the High Value Council Tax Surcharge</p>
+  <p style="margin-top:0.5rem;">
+    <a href="mailto:info@shoutunfairtax.uk">info@shoutunfairtax.uk</a> &nbsp;·&nbsp;
+    <a href="stop-hvcts-campaign.html">Home</a> &nbsp;·&nbsp;
+    <a href="about-shout.html">About</a> &nbsp;·&nbsp;
+    <a href="read-the-facts.html">Facts</a> &nbsp;·&nbsp;
+    <a href="write-to-your-mp.html">Write to your MP</a> &nbsp;·&nbsp;
+    <a href="research.html">Research</a> &nbsp;·&nbsp;
+    <a href="links.html">Links</a>
+  </p>
+  <p style="margin-top:1rem;font-size:0.74rem;opacity:0.6;">SHOUT is an independent citizens' campaign. It is not affiliated with any political party.</p>
+</footer>
+</body>
+</html>

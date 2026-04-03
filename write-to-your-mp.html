@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write to your MP – SHOUT Unfair Tax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0d1f3c;--navy-mid:#162d52;--red:#c8102e;--red-hover:#a00d25;--gold:#d4a017;--off-white:#f5f3ee;--light-grey:#e8e5df;--mid-grey:#9a9690;--body-text:#2a2724;--font-display:'Playfair Display',Georgia,serif;--font-body:'Source Sans 3','Gill Sans',sans-serif;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-body);background:var(--off-white);color:var(--body-text);font-size:17px;line-height:1.7;}
+  nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+  .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+  .nav-logo-badge{background:var(--red);color:#fff;font-family:var(--font-display);font-weight:900;font-size:1.15rem;padding:0.18rem 0.55rem;letter-spacing:0.05em;border-radius:3px;}
+  .nav-logo-text{color:var(--off-white);font-family:var(--font-body);font-weight:300;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;}
+  .nav-links{display:flex;gap:0.3rem;list-style:none;}
+  .nav-links a{color:rgba(245,243,238,0.8);text-decoration:none;font-size:0.85rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;padding:0.4rem 0.75rem;border-radius:3px;transition:color 0.2s,background 0.2s;}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.08);}
+  .page-header{background:var(--navy);color:#fff;padding:3.5rem 2rem 3rem;}
+  .page-header-inner{max-width:860px;margin:0 auto;}
+  .page-tag{display:inline-block;background:var(--red);color:#fff;font-size:0.72rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+  .page-header h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin-bottom:0.8rem;}
+  .page-header p{color:rgba(245,243,238,0.8);font-size:1.05rem;font-weight:300;max-width:580px;}
+  section{padding:3.5rem 2rem;}
+  .section-inner{max-width:860px;margin:0 auto;}
+  .section-tag{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;}
+  h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;color:var(--navy);margin-bottom:1rem;}
+  h3{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:0.3rem;}
+  p{margin-bottom:1rem;color:#3d3a36;}
+  a{color:var(--navy);}
+  .white-section{background:#fff;border-top:3px solid var(--navy);}
+  .step-list{list-style:none;margin-top:1.5rem;counter-reset:steps;}
+  .step-list li{display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:1.4rem;}
+  .step-num{flex-shrink:0;width:36px;height:36px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:0.95rem;margin-top:0.1rem;}
+  .step-content h3{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:0.2rem;}
+  .step-content p{font-size:0.92rem;margin:0;}
+  .letter-box{background:#fff;border:1px solid var(--light-grey);border-left:4px solid var(--navy);padding:2.2rem;margin-top:1.5rem;font-size:0.92rem;line-height:1.8;color:#3d3a36;}
+  .letter-box p{margin-bottom:0.9rem;}
+  .letter-box p:last-child{margin-bottom:0;}
+  .ph{color:var(--red);font-style:italic;}
+  .btn{display:inline-block;padding:0.75rem 1.8rem;border-radius:3px;font-family:var(--font-body);font-size:0.9rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+  .btn-navy{background:var(--navy);color:#fff;}
+  .btn-navy:hover{background:var(--navy-mid);transform:translateY(-1px);}
+  .btn-red{background:var(--red);color:#fff;}
+  .btn-red:hover{background:var(--red-hover);transform:translateY(-1px);}
+  footer{background:#0a1828;color:rgba(245,243,238,0.6);padding:2.5rem 2rem;text-align:center;font-size:0.82rem;line-height:1.8;}
+  footer a{color:rgba(245,243,238,0.6);text-decoration:underline;}
+  footer a:hover{color:#fff;}
+  .footer-logo{font-family:var(--font-display);font-weight:900;font-size:1.3rem;color:#fff;letter-spacing:0.05em;margin-bottom:0.4rem;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="about-shout.html" class="nav-logo">
+    <span class="nav-logo-badge">SHOUT</span>
+    <span class="nav-logo-text">Unfair Tax</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about-shout.html">About</a></li>
+    <li><a href="read-the-facts.html">Facts</a></li>
+    <li><a href="write-to-your-mp.html">Write to your MP</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="links.html">Links</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-tag">Take Action</span>
+    <h1>Write to your MP</h1>
+    <p>MPs respond to constituents. A personal letter from a voter in their constituency carries far more weight than a pre-written campaign email. Here's how to do it effectively.</p>
+  </div>
+</div>
+
+<section class="white-section">
+  <div class="section-inner">
+    <p class="section-tag">How To Do It</p>
+    <h2>Three simple steps</h2>
+    <ol class="step-list">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Find your MP</h3>
+          <p>Visit <a href="https://members.parliament.uk/FindYourMP" target="_blank" rel="noopener">members.parliament.uk/FindYourMP</a> and enter your postcode. This gives you your MP's name, party, constituency office address, and email.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Personalise the template below</h3>
+          <p>Use our suggested letter as a starting point, but personalise it with your own circumstances — how long you have lived in your home, your financial situation, your concerns about retirement. MPs engage more with letters that reflect personal situations.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Send by post or email</h3>
+          <p>A physical letter generally gets more attention. All MPs can also be emailed via <a href="https://www.writetothem.com" target="_blank" rel="noopener">WriteToThem.com</a>. Follow up if you don't receive a response within three weeks.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <p class="section-tag">Letter Template</p>
+    <h2>Model letter to your MP</h2>
+    <p>This is SHOUT's model letter, based on the key arguments against the HVCTS. Adding your own personal circumstances will significantly strengthen the impact. Fill in the highlighted sections.</p>
+
+    <div class="letter-box">
+      <p><span class="ph">[Your name]</span><br>
+      <span class="ph">[Your address]</span><br>
+      <span class="ph">[Date]</span></p>
+
+      <p><span class="ph">[MP's name]</span> MP<br>
+      <span class="ph">[Constituency]</span><br>
+      House of Commons<br>
+      London SW1A 0AA</p>
+
+      <p>Dear <span class="ph">[MP's name]</span>,</p>
+
+      <p>I am writing as your constituent to express my strong opposition to the proposed High Value Council Tax Surcharge (HVCTS), often referred to as the "Mansion Tax", which is expected to come into effect in April 2028. I urge you to oppose this taxation and to advocate against its implementation in Parliament.</p>
+
+      <p>In my view, the HVCTS represents an additional property or wealth tax in a country that already imposes some of the highest property taxes in the world. Property owners of high-value homes already contribute substantially more to the public finances through existing taxes, and this proposal will penalise people simply because of the paper (theoretical) value of their homes.</p>
+
+      <p>For example, Stamp Duty Land Tax already increases steeply with property value. A home valued at around £4 million incurs approximately £400,000 in Stamp Duty, whereas a property worth £250,000 pays roughly £2,500. This clearly demonstrates that higher-value properties already contribute vastly more through the existing taxation system.</p>
+
+      <p>In addition, owners of higher-value homes typically pay higher levels of council tax each year. The current system already reflects differences in property value, and therefore an additional surcharge creates an unfair and disproportionate burden on a relatively small group of homeowners.</p>
+
+      <p>A major concern is that once this new tax is on the statute books, the threshold at which it is imposed will be reduced, capturing many less valuable houses. When the Annual Tax on Enveloped Dwellings ('ATED') was first introduced in the 2010s, it applied to properties worth more than £2 million; within three years this threshold had been reduced to £500,000. It will be only too easy for future governments to make similar changes to the HVCTS, bringing many more family homes into its net.</p>
+
+      <p>Beyond the issue of fairness, I am concerned that this tax will discourage investment, create uncertainty in the housing market and unfairly affect homeowners with illiquid assets.</p>
+
+      <p>A particularly troubling aspect of this proposal is its potential impact on older homeowners. Many living in higher-value homes are low-income pensioners who purchased their properties decades ago when prices were far lower. Their homes may appear to be worth a great deal on paper, but their incomes have certainly not increased in line with property values. Even if such individuals are allowed to defer the annual charge until death, the fact that the tax would be subjected to accumulating interest effectively means there is a growing and unpredictable claim against their property. In practice, this risks becoming a form of confiscation of wealth built up over a lifetime — an additional disincentive to saving which is so critically lacking in the UK.</p>
+
+      <p>A second group, who purchased their homes in the last 15 years, will be sitting on a paper loss of 25% or more on their homes' value, on top of the substantial amount of SDLT they will have paid. This tax therefore punishes those who have already suffered a significant reduction in their wealth.</p>
+
+      <p>Furthermore, policies of this nature will have unintended fiscal consequences. By reducing the value of estates, such measures will ultimately reduce the inheritance tax collected by the government, while also creating additional complexity and uncertainty in estate planning.</p>
+
+      <p>For all these reasons, I respectfully ask that you oppose the introduction of the High Value Council Tax Surcharge and raise these concerns with your colleagues during future parliamentary debates and discussions.</p>
+
+      <p>I would also encourage you to engage with and consider the views of organisations such as SHOUT (Stop Home Owners' Unfair Tax), which represents many homeowners concerned about the unfairness, negative impacts and unintended consequences of this proposal.</p>
+
+      <p>Please let me know your position on this issue and how you intend to represent the views of constituents concerned about the proposed surcharge.</p>
+
+      <p>Yours sincerely,</p>
+      <p><span class="ph">[Your name]</span><br>
+      <span class="ph">[Your address / postcode]</span></p>
+    </div>
+
+    <div style="margin-top:1.4rem;display:flex;gap:0.8rem;flex-wrap:wrap;">
+      <a href="MPs_letter_template.pdf" class="btn btn-navy" download>Download PDF version</a>
+      <a href="https://www.writetothem.com" target="_blank" rel="noopener" class="btn btn-red">Go to WriteToThem.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">SHOUT</div>
+  <p>Stop Home-Owners' Unfair Tax — an independent campaign against the High Value Council Tax Surcharge</p>
+  <p style="margin-top:0.5rem;">
+    <a href="mailto:info@shoutunfairtax.uk">info@shoutunfairtax.uk</a> &nbsp;·&nbsp;
+    <a href="stop-hvcts-campaign.html">Home</a> &nbsp;·&nbsp;
+    <a href="about-shout.html">About</a> &nbsp;·&nbsp;
+    <a href="read-the-facts.html">Facts</a> &nbsp;·&nbsp;
+    <a href="research.html">Research</a> &nbsp;·&nbsp;
+    <a href="links.html">Links</a>
+  </p>
+  <p style="margin-top:1rem;font-size:0.74rem;opacity:0.6;">SHOUT is an independent citizens' campaign. It is not affiliated with any political party.</p>
+</footer>
+</body>
+</html>

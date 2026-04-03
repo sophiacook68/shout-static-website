@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Gallery</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:wght@400;500&display=swap');
+
+  /* ── COLOUR SCHEME — edit these to match the host site ── */
+  :root {
+    --navy: #0c1a3a;
+    --navy-mid: #162952;
+    --navy-light: #1e3a6e;
+    --red: #c41e3a;
+    --red-dark: #9a1830;
+    --red-glow: rgba(196, 30, 58, .35);
+    --cream: #f5f0e8;
+    --gold: #c9a84c;
+    --white: #ffffff;
+    --carousel-max-w: 940px;
+    --speed: 0.6s;
+  }
+
+  /* ── scoped reset ── */
+  .mtx-carousel-wrap, .mtx-carousel-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .mtx-carousel-wrap {
+    max-width: var(--carousel-max-w);
+    margin: 2.5rem auto;
+    font-family: 'Lora', Georgia, serif;
+    position: relative;
+    padding: 0 10px;
+  }
+
+  /* ── OUTER FRAME — navy background with red accent border ── */
+  .mtx-frame {
+    position: relative;
+    padding: 22px;
+    background: var(--navy);
+    border-radius: 4px;
+    border: 3px solid var(--red);
+    box-shadow:
+      0 0 0 1px var(--navy),
+      0 0 0 5px var(--navy-mid),
+      0 0 0 6px var(--red-dark),
+      0 16px 48px rgba(0,0,0,.4);
+  }
+
+  /* ── corner rosettes ── */
+  .mtx-frame::before,
+  .mtx-frame::after,
+  .mtx-corner-bl,
+  .mtx-corner-br {
+    content: '';
+    position: absolute;
+    width: 28px; height: 28px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  /* top-left */
+  .mtx-frame::before {
+    top: 6px; left: 6px;
+    border-top: 3px solid var(--red);
+    border-left: 3px solid var(--red);
+    border-radius: 3px 0 0 0;
+  }
+  /* top-right */
+  .mtx-frame::after {
+    top: 6px; right: 6px;
+    border-top: 3px solid var(--red);
+    border-right: 3px solid var(--red);
+    border-radius: 0 3px 0 0;
+  }
+  .mtx-corner-bl {
+    bottom: 6px; left: 6px;
+    border-bottom: 3px solid var(--red);
+    border-left: 3px solid var(--red);
+    border-radius: 0 0 0 3px;
+  }
+  .mtx-corner-br {
+    bottom: 6px; right: 6px;
+    border-bottom: 3px solid var(--red);
+    border-right: 3px solid var(--red);
+    border-radius: 0 0 3px 0;
+  }
+
+  /* ── inner pinstripe — thin gold line inside the red border ── */
+  .mtx-inner-border {
+    position: relative;
+    border: 2px solid var(--gold);
+    overflow: hidden;
+  }
+
+  /* subtle red shimmer */
+  .mtx-inner-border::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(196,30,58,.3) 45%,
+      rgba(255,255,255,.15) 50%,
+      rgba(196,30,58,.3) 55%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 5s ease-in-out infinite;
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* ── slide viewport ── */
+  .mtx-viewport {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  /* ── POSTCARD SLIDES ── */
+  .mtx-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity var(--speed) ease;
+    /* navy "desk" background behind the postcard */
+    background: var(--navy);
+  }
+  .mtx-slide.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  /* the postcard itself */
+  .mtx-postcard {
+    position: relative;
+    width: 88%;
+    height: 84%;
+    background: var(--white);
+    padding: 10px 10px 10px 10px;
+    box-shadow:
+      0 4px 20px rgba(0,0,0,.35),
+      0 1px 4px rgba(0,0,0,.2);
+    transition: transform var(--speed) cubic-bezier(.25,.46,.45,.94);
+  }
+
+  /* alternating tilt */
+  .mtx-slide:nth-child(odd) .mtx-postcard  { transform: rotate(-2.2deg); }
+  .mtx-slide:nth-child(even) .mtx-postcard { transform: rotate(2.2deg); }
+
+  /* hover straightens */
+  .mtx-carousel-wrap:hover .mtx-slide.active:nth-child(odd) .mtx-postcard  { transform: rotate(-0.6deg); }
+  .mtx-carousel-wrap:hover .mtx-slide.active:nth-child(even) .mtx-postcard { transform: rotate(0.6deg); }
+
+  .mtx-postcard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* subtle red tape effect on top-left corner */
+  .mtx-postcard::before {
+    content: '';
+    position: absolute;
+    top: -6px; left: 12px;
+    width: 42px; height: 18px;
+    background: var(--red);
+    opacity: .75;
+    transform: rotate(-3deg);
+    z-index: 3;
+    border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  }
+  /* second tape on bottom-right */
+  .mtx-postcard::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; right: 14px;
+    width: 42px; height: 18px;
+    background: var(--red);
+    opacity: .75;
+    transform: rotate(2deg);
+    z-index: 3;
+    border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  }
+
+  /* ── nav arrows — red with white ── */
+  .mtx-arrow {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    z-index: 10;
+    width: 48px; height: 48px;
+    border: 2px solid var(--red);
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--red);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .3s ease;
+    opacity: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,.3);
+  }
+  .mtx-carousel-wrap:hover .mtx-arrow { opacity: 1; }
+  .mtx-arrow:hover {
+    background: var(--red);
+    color: var(--white);
+    box-shadow: 0 0 20px var(--red-glow);
+  }
+  .mtx-arrow--prev { left: -20px; }
+  .mtx-arrow--next { right: -20px; }
+
+  /* ── counter pill ── */
+  .mtx-counter {
+    position: absolute;
+    top: 14px; right: 16px;
+    z-index: 10;
+    font-family: 'Cinzel', serif;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--red-dark);
+    padding: 5px 14px;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  }
+
+  /* ── dots — red theme ── */
+  .mtx-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 0 4px;
+    flex-wrap: wrap;
+  }
+  .mtx-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--red);
+    background: transparent;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  .mtx-dot.active,
+  .mtx-dot:hover {
+    background: var(--red);
+    box-shadow: 0 0 8px var(--red-glow);
+    transform: scale(1.25);
+  }
+
+  /* ── decorative line beneath dots ── */
+  .mtx-rule {
+    width: 120px;
+    height: 2px;
+    margin: 10px auto 0;
+    background: linear-gradient(90deg, transparent, var(--red), transparent);
+    border: none;
+  }
+
+  /* ── responsive ── */
+  @media (max-width: 700px) {
+    .mtx-frame { padding: 12px; }
+    .mtx-arrow { width: 38px; height: 38px; font-size: 1rem; opacity: 1; }
+    .mtx-arrow--prev { left: -8px; }
+    .mtx-arrow--next { right: -8px; }
+    .mtx-postcard { width: 92%; height: 86%; padding: 6px; }
+    .mtx-slide:nth-child(odd) .mtx-postcard  { transform: rotate(-1.5deg); }
+    .mtx-slide:nth-child(even) .mtx-postcard { transform: rotate(1.5deg); }
+    .mtx-postcard::before, .mtx-postcard::after { width: 30px; height: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     MANSION TAX PROPERTY CAROUSEL
+     ─────────────────────────────
+     Drop-in component. Folder structure:
+       carousel.html
+       images/
+         01.jpg … 17.jpg
+
+     • Edit image src paths if your folder structure differs.
+     • Adjust CSS :root variables for colours.
+     • Captions are optional — remove the div if not needed.
+     ============================================================ -->
+
+<div class="mtx-carousel-wrap" id="mtxCarousel">
+  <div class="mtx-frame">
+    <div class="mtx-corner-bl"></div>
+    <div class="mtx-corner-br"></div>
+
+    <div class="mtx-inner-border">
+      <div class="mtx-viewport">
+
+        <div class="mtx-slide active">
+          <div class="mtx-postcard"><img src="images/01.jpg" alt="Property 1"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/02.jpg" alt="Property 2"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/03.jpg" alt="Property 3"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/04.jpg" alt="Property 4"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/05.jpg" alt="Property 5"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/06.jpg" alt="Property 6"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/07.jpg" alt="Property 7"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/08.jpg" alt="Property 8"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/09.jpg" alt="Property 9"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/10.jpg" alt="Property 10"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/11.jpg" alt="Property 11"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/12.jpg" alt="Property 12"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/13.jpg" alt="Property 13"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/14.jpg" alt="Property 14"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/15.jpg" alt="Property 15"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/16.jpg" alt="Property 16"></div>
+        </div>
+        <div class="mtx-slide">
+          <div class="mtx-postcard"><img src="images/17.jpg" alt="Property 17"></div>
+        </div>
+
+        <div class="mtx-counter"><span id="mtxCurr">1</span> / <span id="mtxTotal">17</span></div>
+      </div>
+    </div>
+
+    <button class="mtx-arrow mtx-arrow--prev" aria-label="Previous slide">&#10094;</button>
+    <button class="mtx-arrow mtx-arrow--next" aria-label="Next slide">&#10095;</button>
+  </div>
+
+  <div class="mtx-dots" id="mtxDots"></div>
+  <hr class="mtx-rule">
+</div>
+
+<script>
+(() => {
+  const wrap    = document.getElementById('mtxCarousel');
+  const slides  = wrap.querySelectorAll('.mtx-slide');
+  const dotsBox = document.getElementById('mtxDots');
+  const curr    = document.getElementById('mtxCurr');
+  const total   = document.getElementById('mtxTotal');
+  const prevBtn = wrap.querySelector('.mtx-arrow--prev');
+  const nextBtn = wrap.querySelector('.mtx-arrow--next');
+
+  let idx = 0;
+  let auto;
+  const INTERVAL = 4500;
+
+  total.textContent = slides.length;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'mtx-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', () => go(i));
+    dotsBox.appendChild(d);
+  });
+  const dots = dotsBox.querySelectorAll('.mtx-dot');
+
+  function go(n) {
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = (n + slides.length) % slides.length;
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+    curr.textContent = idx + 1;
+    resetAuto();
+  }
+
+  prevBtn.addEventListener('click', () => go(idx - 1));
+  nextBtn.addEventListener('click', () => go(idx + 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  go(idx - 1);
+    if (e.key === 'ArrowRight') go(idx + 1);
+  });
+
+  let sx;
+  const vp = wrap.querySelector('.mtx-viewport');
+  vp.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  vp.addEventListener('touchend', e => {
+    const diff = sx - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) diff > 0 ? go(idx + 1) : go(idx - 1);
+  });
+
+  function resetAuto() { clearInterval(auto); auto = setInterval(() => go(idx + 1), INTERVAL); }
+  resetAuto();
+  wrap.addEventListener('mouseenter', () => clearInterval(auto));
+  wrap.addEventListener('mouseleave', resetAuto);
+})();
+</script>
+
+</body>
+</html>

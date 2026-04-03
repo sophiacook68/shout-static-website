@@ -174,18 +174,47 @@
   }
   footer p { font-size: 0.78rem; color: #2a3a5a; }
 
+  /* ── TABLET (max 1024px) ── */
+  @media (max-width: 1024px) {
+    .page-wrapper { padding: 100px 5% 70px; }
+    .page-title { font-size: 2.8rem; }
+    .donate-cta { padding: 2rem; }
+  }
+
+  /* ── MOBILE (max 768px) ── */
   @media (max-width: 768px) {
-    nav { height: auto; padding: 0.8rem 5%; flex-wrap: wrap; gap: 0.5rem; }
-    .page-wrapper { padding: 100px 5% 60px; }
-    .about-logo { max-width: 160px; }
+    nav {
+      height: auto;
+      padding: 0.8rem 5%;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .page-wrapper { padding: 100px 5% 50px; }
+    .about-logo { max-width: 140px; margin-bottom: 1.5rem; }
+    .page-eyebrow { font-size: 0.7rem; }
+    .page-title { font-size: clamp(1.8rem, 7vw, 2.6rem); margin-bottom: 1.8rem; }
+    .about-section h2 { font-size: 1.2rem; }
+    .about-section p { font-size: 0.95rem; }
+    .donate-cta { padding: 1.5rem; }
+    .donate-cta p { font-size: 0.95rem; }
+    .btn-gold { width: 100%; text-align: center; padding: 0.9rem 1rem; }
+    footer { padding: 25px 5%; }
+  }
+
+  /* ── SMALL MOBILE (max 480px) ── */
+  @media (max-width: 480px) {
+    .page-wrapper { padding: 90px 4% 40px; }
+    .page-title { font-size: 1.7rem; }
+    .about-section { margin-bottom: 2rem; padding-bottom: 2rem; }
+    .divider { margin: 1.8rem 0; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="stop-hvcts-campaign.html" class="nav-logo">Shout <span>Unfair Tax</span></a>
-  <a href="stop-hvcts-campaign.html" class="nav-back">← Back to main site</a>
+  <a href="index.html" class="nav-logo">Shout <span>Unfair Tax</span></a>
+  <a href="index.html" class="nav-back">← Back to main site</a>
 </nav>
 
 <div class="page-wrapper">
@@ -229,7 +258,7 @@
 </div>
 
 <footer>
-  <p>© 2026 Shout Unfair Tax Campaign. All rights reserved. | <a href="stop-hvcts-campaign.html" style="color:#5a6a8a;">Return to main site</a></p>
+  <p>© 2026 Shout Unfair Tax Campaign. All rights reserved. | <a href="index.html" style="color:#5a6a8a;">Return to main site</a></p>
 </footer>
 
 </body>

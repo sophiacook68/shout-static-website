@@ -227,11 +227,47 @@
   footer a { color: #5a6a8a; text-decoration: none; }
   footer a:hover { color: var(--gold); }
 
+  /* ── TABLET (max 1024px) ── */
+  @media (max-width: 1024px) {
+    .page-hero { padding: 100px 5% 60px; }
+    .page-content { padding: 60px 5% 70px; }
+    .fact-section h2 { font-size: 1.6rem; }
+  }
+
+  /* ── MOBILE (max 768px) ── */
   @media (max-width: 768px) {
-    nav { height: auto; padding: 0.8rem 5%; flex-wrap: wrap; gap: 0.5rem; }
-    .page-hero { padding: 100px 5% 50px; }
-    .page-content { padding: 50px 5% 60px; }
+    nav {
+      height: auto;
+      padding: 0.8rem 5%;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .nav-back { font-size: 0.75rem; letter-spacing: 0.04em; }
+    .page-hero { padding: 100px 5% 45px; }
+    .page-hero h1 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+    .page-hero p { font-size: 0.95rem; }
+    .page-content { padding: 45px 5% 55px; }
     .lead-statement { padding: 1.5rem; }
+    .lead-statement p { font-size: 1.1rem; }
+    .featured-image { border-radius: 2px; }
+    .intro-para { font-size: 0.98rem; margin-bottom: 2rem; padding-bottom: 2rem; }
+    .fact-section { margin-bottom: 2rem; padding-bottom: 2rem; }
+    .fact-section h2 { font-size: 1.2rem; padding-left: 0.8rem; }
+    .fact-item { padding: 1.1rem 1.2rem; }
+    .fact-item p { font-size: 0.9rem; }
+    .back-btn { width: 100%; text-align: center; display: block; }
+    footer { padding: 25px 5%; }
+  }
+
+  /* ── SMALL MOBILE (max 480px) ── */
+  @media (max-width: 480px) {
+    .page-hero { padding: 90px 4% 40px; }
+    .page-content { padding: 35px 4% 45px; }
+    .lead-statement { padding: 1.2rem; }
+    .lead-statement p { font-size: 1rem; }
+    .fact-section h2 { font-size: 1.1rem; }
+    .fact-item { padding: 1rem; }
+    .image-caption { font-size: 0.75rem; }
   }
 </style>
 </head>
@@ -239,7 +275,7 @@
 
 <nav>
   <a href="about-shout.html" class="nav-logo">Shout <span>Unfair Tax</span></a>
-  <a href="stop-hvcts-campaign.html" class="nav-back">← Back to main site</a>
+  <a href="https://shoutunfairtax.uk" class="nav-back">← Back to main site</a>
 </nav>
 
 <!-- HERO -->
@@ -305,12 +341,12 @@
     </div>
   </div>
 
-  <a href="stop-hvcts-campaign.html" class="back-btn">← Return to main site</a>
+  <a href="https://shoutunfairtax.uk" class="back-btn">← Return to main site</a>
 
 </div>
 
 <footer>
-  <p>© 2026 Shout Unfair Tax Campaign. All rights reserved. | <a href="stop-hvcts-campaign.html">Return to main site</a></p>
+  <p>© 2026 Shout Unfair Tax Campaign. All rights reserved. | <a href="https://shoutunfairtax.uk">Return to main site</a></p>
 </footer>
 
 </body>

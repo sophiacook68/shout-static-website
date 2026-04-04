@@ -1052,6 +1052,53 @@
   @media (max-width: 900px) {
     .carousel-wrapper { display: none; }
   }
+
+  /* PRESS ARTICLES */
+  .press-articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  .press-article-link {
+    display: block;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--navy);
+    border-radius: 2px;
+    padding: 1.2rem 1.5rem;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .press-article-link:hover {
+    border-left-color: var(--gold);
+    transform: translateX(3px);
+  }
+  .press-article-pub {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 0.3rem;
+  }
+  .press-article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+  .press-article-arrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .press-article-link:hover .press-article-arrow {
+    color: var(--gold);
+  }
 </style>
 </head>
 <body>
@@ -1402,8 +1449,38 @@
     <p class="section-eyebrow">Further Reading</p>
     <h2 class="section-title">Links &amp; Media</h2>
     <p class="section-intro">Useful external resources, press articles, Government documents, and related organisations.</p>
-    <div class="placeholder-box" style="background:var(--off-white);border:2px dashed var(--border);">
-      <p>Curated links and resources will be added here. Please check back soon.</p>
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:1.2rem;padding-bottom:0.5rem;border-bottom:2px solid var(--gold);display:inline-block;">Press Coverage</h3>
+    <div class="press-articles-list">
+      <a href="press-article-1.pdf" target="_blank" rel="noopener" class="press-article-link">
+        <div class="press-article-pub">The Times &mdash; 24 November 2025</div>
+        <div class="press-article-title">Second home owners face 'mansion tax' bills of £13,700</div>
+        <div class="press-article-arrow">Read article &rarr;</div>
+      </a>
+      <a href="press-article-2.pdf" target="_blank" rel="noopener" class="press-article-link">
+        <div class="press-article-pub">The Times &mdash; 26 November 2025</div>
+        <div class="press-article-title">How will mansion tax work? Here's how to devalue your home to avoid it</div>
+        <div class="press-article-arrow">Read article &rarr;</div>
+      </a>
+      <a href="press-article-3.pdf" target="_blank" rel="noopener" class="press-article-link">
+        <div class="press-article-pub">The Times &mdash; 27 November 2025</div>
+        <div class="press-article-title">Will your home be caught in Rachel Reeves's mansion tax net?</div>
+        <div class="press-article-arrow">Read article &rarr;</div>
+      </a>
+      <a href="press-article-4.pdf" target="_blank" rel="noopener" class="press-article-link">
+        <div class="press-article-pub">The Times &mdash; 11 December 2025</div>
+        <div class="press-article-title">Beware the unintended consequences of mansion tax</div>
+        <div class="press-article-arrow">Read article &rarr;</div>
+      </a>
+      <a href="press-article-5.pdf" target="_blank" rel="noopener" class="press-article-link">
+        <div class="press-article-pub">The Times &mdash; 2 April 2026</div>
+        <div class="press-article-title">Mansion tax 'to affect 165,000 homes in first year'</div>
+        <div class="press-article-arrow">Read article &rarr;</div>
+      </a>
+      <a href="press-article-6.pdf" target="_blank" rel="noopener" class="press-article-link">
+        <div class="press-article-pub">Financial Times &mdash; 3 April 2026</div>
+        <div class="press-article-title">Rachel Reeves' "Mansion Tax" to hit 160,000 homes, says fiscal watchdog</div>
+        <div class="press-article-arrow">Read article &rarr;</div>
+      </a>
     </div>
   </div>
 </section>

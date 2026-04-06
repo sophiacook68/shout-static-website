@@ -1100,6 +1100,47 @@
     color: var(--gold);
   }
 </style>
+
+<script data-cfasync="false">
+document.addEventListener('DOMContentLoaded', function() {
+  var wrapper = document.querySelector('.carousel-wrapper');
+  var dotsContainer = document.getElementById('carouselDots');
+  if (!wrapper || !dotsContainer) return;
+  var slides = wrapper.querySelectorAll('.carousel-slide');
+  var total = slides.length;
+  if (total < 2) return;
+  var current = 0;
+  var timer;
+
+  // Build dots
+  for (var i = 0; i < total; i++) {
+    var dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    (function(idx) {
+      dot.addEventListener('click', function() { goTo(idx); });
+    })(i);
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    var dots = dotsContainer.querySelectorAll('.carousel-dot');
+    if (dots[current]) dots[current].classList.remove('active');
+    current = ((idx % total) + total) % total;
+    slides[current].classList.add('active');
+    if (dots[current]) dots[current].classList.add('active');
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function() { goTo(current + 1); }, 4000);
+  }
+
+  window.carouselMove = function(dir) { goTo(current + dir); };
+  resetTimer();
+});
+</script>
 </head>
 <body>
 
@@ -1529,7 +1570,7 @@
     <p>Registered campaign — Electoral Commission compliant</p>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   let sigCount = 4217;
 
   function submitPetition() {
@@ -1561,7 +1602,6 @@
     });
   }
 
-  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
@@ -1574,27 +1614,7 @@
     });
   });
 
-  // CAROUSEL - fade style
-  (function() {
-    var wrapper = document.querySelector('.carousel-wrapper');
-    var dotsContainer = document.getElementById('carouselDots');
-    if (!wrapper || !dotsContainer) return;
-    var slides = wrapper.querySelectorAll('.carousel-slide');
-    var total = slides.length;
-    var current = 0;
-    var timer;
-
-    for (var i = 0; i < total; i++) {
-      var dot = document.createElement('div');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      (function(idx) {
-        dot.addEventListener('click', function() { goTo(idx); });
-      })(i);
-      dotsContainer.appendChild(dot);
-    }
-
-    function goTo(idx) {
-      slides[current].classList.remove('active');
-      var dots = dotsContainer.querySelectorAll('.carousel-dot');
-      dots[current].classList.remove('active');
-      current = (idx + to
+  // Carousel handled in head script
+</script>
+</body>
+</html>

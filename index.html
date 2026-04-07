@@ -1141,6 +1141,35 @@ document.addEventListener('DOMContentLoaded', function() {
   resetTimer();
 });
 </script>
+
+<script data-cfasync="false">
+document.addEventListener('DOMContentLoaded', function() {
+  // Build email address in JS to prevent obfuscation
+  var u = 'info';
+  var d = 'shoutunfairtax.uk';
+  var e = u + '@' + d;
+  var sub1 = '?subject=Join%20Mailing%20List';
+  var sub2 = '?subject=Volunteering%20Enquiry';
+
+  function setMailto(id, subject) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.href = 'mailto:' + e + (subject || '');
+      el.addEventListener('click', function(ev) {
+        ev.preventDefault();
+        window.location.href = 'mailto:' + e + (subject || '');
+      });
+    }
+  }
+
+  setMailto('btn-email-now', '');
+  setMailto('btn-email-inline', '');
+  setMailto('btn-mailing-list', sub1);
+  setMailto('btn-volunteer', sub2);
+  setMailto('btn-footer-contact', '');
+  setMailto('btn-footer-disclaimer', '');
+});
+</script>
 </head>
 <body>
 
@@ -1408,11 +1437,11 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="take-action-hero-text">
         <h3>Contact the Campaign</h3>
         <p>Get in touch with our team, ask a question, or let us know how the HVCTS will affect you. Your story matters — personal testimonies from affected homeowners are among the most powerful contributions to the consultation process.</p>
-        <p style="margin-top:0.8rem;font-size:0.9rem;color:#5a6a8a;">📧 <a href="/cdn-cgi/l/email-protection#d1b8bfb7be91a2b9bea4a5a4bfb7b0b8a3a5b0a9ffa4ba" style="color:var(--gold);text-decoration:none;font-weight:600;"><span class="__cf_email__" data-cfemail="d1b8bfb7be91a2b9bea4a5a4bfb7b0b8a3a5b0a9ffa4ba">[email&#160;protected]</span></a></p>
+        <p style="margin-top:0.8rem;font-size:0.9rem;color:#5a6a8a;">📧 <a href="#" id="btn-email-inline" style="color:var(--gold);text-decoration:none;font-weight:600;">info@shoutunfairtax.uk</a></p>
       </div>
       <div class="take-action-ctas">
-        <a href="/cdn-cgi/l/email-protection#6a03040c052a1902051f1e1f040c0b03181e0b12441f01" class="btn-gold">Email Us Now</a>
-        <a href="/cdn-cgi/l/email-protection#8ce5e2eae3ccffe4e3f9f8f9e2eaede5fef8edf4a2f9e7b3fff9eee6e9eff8b1c6e3e5e2a9bebcc1ede5e0e5e2eba9bebcc0e5fff8" class="btn-outline-cream">Join the Mailing List</a>
+        <a href="#" id="btn-email-now" class="btn-gold">Email Us Now</a>
+        <a href="#" id="btn-mailing-list" class="btn-outline-cream">Join the Mailing List</a>
       </div>
     </div>
 
@@ -1440,7 +1469,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <li>Writing, editing, and communications</li>
           <li>Legal, financial or property expertise</li>
         </ul>
-        <a href="/cdn-cgi/l/email-protection#acc5c2cac3ecdfc4c3d9d8d9c2cacdc5ded8cdd482d9c793dfd9cec6c9cfd891fac3c0d9c2d8c9c9dec5c2cb899e9ce9c2ddd9c5ded5" class="btn-panel-primary">Express your interest</a>
+        <a href="#" id="btn-volunteer" class="btn-panel-primary">Express your interest</a>
       </div>
       <div class="action-panel">
         <div class="action-panel-icon">💷</div>
@@ -1549,7 +1578,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <li><a href="write-to-your-mp.html">Write to your MP</a></li>
         <li><a href="#take-action">Volunteer</a></li>
         <li><a href="#take-action">Donate</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#a7cec9c1c8e7d4cfc8d2d3d2c9c1c6ced5d3c6df89d2cc">Contact us</a></li>
+        <li><a href="#" id="btn-footer-contact">Contact us</a></li>
       </ul>
     </div>
     <div class="footer-links">
@@ -1563,14 +1592,14 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
   <div class="disclaimer">
-    <p>This website is operated by an independent campaign and is not affiliated with any political party. All factual information is drawn from publicly available Government documents, HM Treasury publications, and the Office for Budget Responsibility. The HVCTS is subject to ongoing consultation and legislation; information on this site will be updated as the policy develops. This site does not constitute legal or financial advice. Contact: <a href="/cdn-cgi/l/email-protection#d3babdb5bc93a0bbbca6a7a6bdb5b2baa1a7b2abfda6b8" style="color:#5a6a8a;"><span class="__cf_email__" data-cfemail="96fff8f0f9d6e5fef9e3e2e3f8f0f7ffe4e2f7eeb8e3fd">[email&#160;protected]</span></a></p>
+    <p>This website is operated by an independent campaign and is not affiliated with any political party. All factual information is drawn from publicly available Government documents, HM Treasury publications, and the Office for Budget Responsibility. The HVCTS is subject to ongoing consultation and legislation; information on this site will be updated as the policy develops. This site does not constitute legal or financial advice. Contact: <a href="#" id="btn-footer-disclaimer" style="color:#5a6a8a;">info@shoutunfairtax.uk</a></p>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Shout Unfair Tax Campaign. All rights reserved.</p>
     <p>Registered campaign — Electoral Commission compliant</p>
   </div>
 </footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   let sigCount = 4217;
 
   function submitPetition() {
@@ -1593,28 +1622,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function shareFacebook() {
     const url = encodeURIComponent(window.location.href);
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank');
-  }
-
-  function copyLink() {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      alert('Campaign link copied to clipboard.');
-    });
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const href = a.getAttribute('href');
-      if (href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // Carousel handled in head script
-</script>
-</body>
-</html>
+    window.open('https://www.facebook.com

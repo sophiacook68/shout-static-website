@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="400" height="220">
+  <!-- House roof outline -->
+  <polyline points="30,140 200,20 370,140" fill="none" stroke="#1a1a1a" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Chimney -->
+  <rect x="270" y="55" width="28" height="48" fill="none" stroke="#1a1a1a" stroke-width="7"/>
+
+  <!-- SHOUT text - bold, red with dark outline effect -->
+  <text x="200" y="155" 
+    font-family="Arial Black, Arial, sans-serif" 
+    font-size="88" 
+    font-weight="900" 
+    text-anchor="middle" 
+    fill="#c0231a"
+    letter-spacing="2">SHOUT</text>
+
+  <!-- Underline -->
+  <line x1="30" y1="188" x2="370" y2="188" stroke="#ffffff" stroke-width="2"/>
+
+  <!-- Stop Home Owners Unfair Tax - white -->
+  <text x="200" y="210" 
+    font-family="Georgia, serif" 
+    font-size="22" 
+    font-weight="400"
+    text-anchor="middle" 
+    fill="#ffffff"
+    letter-spacing="0.5">Stop Home Owners Unfair Tax</text>
+</svg>

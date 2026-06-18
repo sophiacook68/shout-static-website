@@ -1132,6 +1132,73 @@
   .press-article-link:hover .press-article-arrow {
     color: var(--gold);
   }
+  /* CONSULTATION BANNER */
+  .consultation-banner {
+    background: #c0231a;
+    padding: 0;
+    position: relative;
+    z-index: 90;
+  }
+  .consultation-banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.9rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .consultation-banner-text {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .consultation-banner-urgent {
+    background: #ffffff;
+    color: #c0231a;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .consultation-banner-msg {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.95rem;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+  .consultation-banner-msg strong {
+    font-weight: 700;
+  }
+  .consultation-banner-link {
+    display: inline-block;
+    background: #ffffff;
+    color: #c0231a;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.55rem 1.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+  .consultation-banner-link:hover {
+    background: #ffd000;
+    color: #1a1a1a;
+  }
+  @media (max-width: 700px) {
+    .consultation-banner-inner { flex-direction: column; align-items: flex-start; }
+  }
+
   /* ILLUSTRATED HOUSES STRIP */
   .houses-strip {
     background: #ede8e0;

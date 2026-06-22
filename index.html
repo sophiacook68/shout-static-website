@@ -65,11 +65,11 @@
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--navy);
+    background: #e8dfd0;
     padding: 0 5%;
     display: flex; align-items: center; justify-content: space-between;
     height: 175px;
-    border-bottom: 2px solid var(--gold);
+    border-bottom: 2px solid var(--crimson);
   }
   .nav-logo {
     font-family: 'Playfair Display', serif;
@@ -82,7 +82,7 @@
   .nav-logo span { color: var(--gold); }
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a {
-    color: #ffffff;
+    color: #2d2116;
     text-decoration: none;
     font-size: 0.85rem;
     font-family: 'Source Serif 4', serif;
@@ -91,7 +91,7 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover { color: var(--crimson); }
   .nav-cta {
     background: var(--crimson);
     color: #fff !important;
@@ -102,18 +102,18 @@
   }
   .nav-cta:hover { background: var(--crimson-light) !important; }
   .nav-btn-outline {
-    border: 1px solid rgba(201,168,76,0.5) !important;
-    color: var(--gold) !important;
+    border: 1px solid rgba(45,33,22,0.4) !important;
+    color: #2d2116 !important;
     padding: 0.4rem 1rem;
     border-radius: 2px;
     transition: background 0.2s, border-color 0.2s !important;
   }
-  .nav-btn-outline:hover { background: rgba(201,168,76,0.1) !important; border-color: var(--gold) !important; }
+  .nav-btn-outline:hover { background: rgba(192,35,26,0.08) !important; border-color: var(--crimson) !important; color: var(--crimson) !important; }
 
   /* HERO */
   .hero {
     min-height: 100vh;
-    background: var(--navy);
+    background: #e8dfd0;
     display: flex; flex-direction: column; justify-content: center;
     padding: 210px 5% 80px;
     position: relative;
@@ -126,7 +126,7 @@
       90deg,
       transparent,
       transparent 79px,
-      rgba(201,168,76,0.04) 80px
+      rgba(45,33,22,0.04) 80px
     );
     pointer-events: none;
   }
@@ -137,7 +137,7 @@
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--crimson);
     margin-bottom: 1.5rem;
     display: flex; align-items: center; gap: 0.8rem;
   }
@@ -145,24 +145,24 @@
     content: '';
     display: inline-block;
     width: 32px; height: 2px;
-    background: var(--gold);
+    background: var(--crimson);
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.8rem, 6vw, 5.2rem);
     font-weight: 900;
-    color: var(--cream);
+    color: #2d2116;
     line-height: 1.08;
     margin-bottom: 1.8rem;
   }
   .hero h1 em {
     font-style: normal;
-    color: var(--gold);
+    color: var(--crimson);
   }
   .hero-lead {
     font-size: 1.2rem;
     font-weight: 300;
-    color: #f0ece4;
+    color: #4a3d2e;
     max-width: 600px;
     margin-bottom: 2.8rem;
     line-height: 1.75;
@@ -186,26 +186,26 @@
   .btn-primary:hover { background: var(--crimson-light); transform: translateY(-1px); }
   .btn-secondary {
     background: transparent;
-    color: var(--cream);
+    color: #2d2116;
     padding: 0.9rem 2rem;
     font-family: 'Source Serif 4', serif;
     font-size: 0.95rem;
     font-weight: 400;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    border: 1px solid rgba(200,200,220,0.35);
+    border: 1px solid rgba(45,33,22,0.35);
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
     border-radius: 2px;
     transition: border-color 0.2s, color 0.2s;
   }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-secondary:hover { border-color: var(--crimson); color: var(--crimson); }
 
   .hero-stats {
     margin-top: 4rem;
     padding-top: 3rem;
-    border-top: 1px solid rgba(201,168,76,0.25);
+    border-top: 1px solid rgba(45,33,22,0.2);
     display: flex; gap: 3.5rem; flex-wrap: wrap;
   }
   .stat-item {}
@@ -213,13 +213,13 @@
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--crimson);
     display: block;
     line-height: 1;
   }
   .stat-label {
     font-size: 0.78rem;
-    color: #ffffff;
+    color: #4a3d2e;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     display: block;
